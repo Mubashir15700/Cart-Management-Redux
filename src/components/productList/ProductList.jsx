@@ -8,7 +8,7 @@ const ProductList = () => {
     <section className="container">
       {products?.map((product, key) => (
         <div className="product-container" key={key}>
-          <img src={product?.image} alt="" />
+          <img src={product?.image} alt="product" />
           <h3>{product?.title}</h3>
           <DisplayButtons product={product} />
         </div>
