@@ -1,10 +1,13 @@
+import { Fragment } from "react";
+import { Header, ProductList } from "./components";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1>My Redux Mini Project</h1>
-    </div>
+    <Fragment>
+      <Header />
+      <ProductList />
+    </Fragment>
   );
 }
 
