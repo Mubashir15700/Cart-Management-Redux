@@ -1,14 +1,24 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserData } from "../../redux/myCart";
 import "./Header.css";
 
 const Header = () => {
   const { cartList = [] } = useSelector((state) => state.cart);
+  const { userDetail } = useSelector((state) => state.cart);
   const totalCartCount = cartList.reduce((acc, value) => (acc += value.count), 0);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUserData());
+  }, []);
 
   return (
     <header>
       <div className="container">
         <h1>StylesCraze</h1>
+        <p>{userDetail?.name}</p>
         <div className="right-section">
           <div className="cart-count-header">
             {totalCartCount}
